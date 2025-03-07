@@ -268,8 +268,8 @@ class _HeroWidgetState extends State<HeroWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.882,
-                            height: 600.0,
+                            width: MediaQuery.sizeOf(context).width * 0.962,
+                            height: 536.9,
                             constraints: BoxConstraints(
                               minWidth: 300.0,
                               maxWidth: 540.0,

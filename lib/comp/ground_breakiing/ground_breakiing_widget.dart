@@ -115,7 +115,8 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
                         minFontSize: 12.0,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).accent4,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                               fontSize: 24.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w300,

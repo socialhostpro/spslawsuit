@@ -42,22 +42,14 @@ class _FooterWidgetState extends State<FooterWidget> {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: Image.asset(
-            'assets/images/judge_with_gavel_28rpp671um40vvtiripm_0.png',
+            'assets/images/legal_libary_z5l6xspdhqnc91ehnamr_2.png',
           ).image,
         ),
       ),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              FlutterFlowTheme.of(context).primaryText,
-              Color(0xF157636C)
-            ],
-            stops: [0.0, 1.0],
-            begin: AlignmentDirectional(0.0, -1.0),
-            end: AlignmentDirectional(0, 1.0),
-          ),
+          color: Color(0xB314181B),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,

@@ -44,7 +44,9 @@ class _SpsWhatISWidgetState extends State<SpsWhatISWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
       child: Container(
         height: 593.8,
-        decoration: BoxDecoration(),
+        decoration: BoxDecoration(
+          color: FlutterFlowTheme.of(context).primaryBackground,
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

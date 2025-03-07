@@ -46,7 +46,7 @@ class _CtaWidgetState extends State<CtaWidget> {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: Image.asset(
-            'assets/images/judge_with_gavel_28rpp671um40vvtiripm_0.png',
+            'assets/images/black_leather_texture_oq318q90qun0mt90ucjc_2.png',
           ).image,
         ),
       ),
