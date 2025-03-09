@@ -62,6 +62,8 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('MOBILE_MENU_COMP_Icon_c46gg2dc_ON_TAP');
+                      logFirebaseEvent('Icon_close_dialog_drawer_etc');
                       Navigator.pop(context);
                     },
                     child: Icon(
@@ -84,6 +86,10 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent(
+                          'MOBILE_MENU_COMP_GET_STARTED_BTN_ON_TAP');
+                      logFirebaseEvent('Button_navigate_to');
+
                       context.pushNamed(SignTodayWidget.routeName);
                     },
                     text: 'GET STARTED',
@@ -101,10 +107,11 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
                       color: Color(0x4339D2C0),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
+                                fontFamily: 'pro',
                                 color: Colors.white,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(
@@ -125,6 +132,8 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
               children: [
                 FFButtonWidget(
                   onPressed: () async {
+                    logFirebaseEvent('MOBILE_MENU_COMP_CALL_TODAY_BTN_ON_TAP');
+                    logFirebaseEvent('Button_call_number');
                     await launchUrl(Uri(
                       scheme: 'tel',
                       path: '850-815-0256',
@@ -144,10 +153,11 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0x4239D2C0),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter Tight',
+                          fontFamily: 'pro',
                           color: Colors.white,
                           fontSize: 22.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts: false,
                         ),
                     elevation: 0.0,
                     borderRadius: BorderRadius.circular(8.0),

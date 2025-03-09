@@ -25,6 +25,7 @@ class _SignTodayWidgetState extends State<SignTodayWidget> {
     super.initState();
     _model = createModel(context, () => SignTodayModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'SignToday'});
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 

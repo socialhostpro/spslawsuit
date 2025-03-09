@@ -86,7 +86,7 @@ class _CtaWidgetState extends State<CtaWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.95,
+                              width: MediaQuery.sizeOf(context).width * 0.98,
                               constraints: BoxConstraints(
                                 minWidth: 300.0,
                                 maxWidth: 800.0,
@@ -99,11 +99,12 @@ class _CtaWidgetState extends State<CtaWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'pro',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      fontSize: 26.0,
+                                      fontSize: 24.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -133,6 +134,10 @@ class _CtaWidgetState extends State<CtaWidget> {
                           children: [
                             FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'CTA_COMP_LETS_STAND_TOGETHER_BTN_ON_TAP');
+                                logFirebaseEvent('Button_navigate_to');
+
                                 context.pushNamed(SignTodayWidget.routeName);
                               },
                               text: 'LETS STAND TOGETHER',
@@ -151,10 +156,11 @@ class _CtaWidgetState extends State<CtaWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter Tight',
+                                      fontFamily: 'pro',
                                       color: Colors.white,
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: false,
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(0.0),

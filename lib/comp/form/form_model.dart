@@ -1,6 +1,8 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'form_widget.dart' show FormWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class FormModel extends FlutterFlowModel<FormWidget> {
   ///  State fields for stateful widgets in this component.
@@ -15,6 +17,9 @@ class FormModel extends FlutterFlowModel<FormWidget> {
       return 'FULL NAME is required';
     }
 
+    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
+      return 'Must start with a letter and can only contain letters, digits and - or _.';
+    }
     return null;
   }
 
@@ -27,12 +32,16 @@ class FormModel extends FlutterFlowModel<FormWidget> {
       return 'EMAIL ADDRESS is required';
     }
 
+    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+      return 'Has to be a valid email address.';
+    }
     return null;
   }
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
+  final textFieldMask3 = MaskTextInputFormatter(mask: '(###) ###-####');
   String? Function(BuildContext, String?)? textController3Validator;
   String? _textController3Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
@@ -101,6 +110,9 @@ class FormModel extends FlutterFlowModel<FormWidget> {
 
     return null;
   }
+
+  // Stores action output result for [Backend Call - API (newLeadSendEmailAddSheet)] action in Button widget.
+  ApiCallResponse? apiResult64s;
 
   @override
   void initState(BuildContext context) {

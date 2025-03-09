@@ -1,4 +1,4 @@
-package com.mycompany.spslawsuit
+package com.shp.spslawsuit
 
 import io.flutter.embedding.android.FlutterActivity
 

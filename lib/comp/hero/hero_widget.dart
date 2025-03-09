@@ -82,23 +82,29 @@ class _HeroWidgetState extends State<HeroWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 0.0, 0.0),
-                              child: Container(
-                                width: 134.67,
-                                height: 134.67,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: Image.asset(
-                                      'assets/images/LOGO-W.png',
-                                    ).image,
+                            if (responsiveVisibility(
+                              context: context,
+                              tablet: false,
+                              tabletLandscape: false,
+                              desktop: false,
+                            ))
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
+                                child: Container(
+                                  width: 109.65,
+                                  height: 109.65,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: Image.asset(
+                                        'assets/images/LOGO-W.png',
+                                      ).image,
+                                    ),
+                                    shape: BoxShape.circle,
                                   ),
-                                  shape: BoxShape.circle,
                                 ),
                               ),
-                            ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -107,6 +113,9 @@ class _HeroWidgetState extends State<HeroWidget> {
                                       0.0, 0.0, 15.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      logFirebaseEvent(
+                                          'HERO_COMP_CALL_TODAY_BTN_ON_TAP');
+                                      logFirebaseEvent('Button_call_number');
                                       await launchUrl(Uri(
                                         scheme: 'tel',
                                         path: '850-815-0256',
@@ -128,19 +137,21 @@ class _HeroWidgetState extends State<HeroWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                        fontFamily: 'Inter Tight',
-                                        color: Colors.white,
-                                        fontSize: 18.0,
-                                        letterSpacing: 0.0,
-                                        shadows: [
-                                          Shadow(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            offset: Offset(2.0, 2.0),
-                                            blurRadius: 2.0,
-                                          )
-                                        ],
-                                      ),
+                                            fontFamily: 'pro',
+                                            color: Colors.white,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            shadows: [
+                                              Shadow(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                offset: Offset(2.0, 2.0),
+                                                blurRadius: 2.0,
+                                              )
+                                            ],
+                                            useGoogleFonts: false,
+                                          ),
                                       elevation: 0.0,
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -155,6 +166,10 @@ class _HeroWidgetState extends State<HeroWidget> {
                                       0.0, 0.0, 15.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      logFirebaseEvent(
+                                          'HERO_COMP_GET_STARTED_BTN_ON_TAP');
+                                      logFirebaseEvent('Button_navigate_to');
+
                                       context
                                           .pushNamed(SignTodayWidget.routeName);
                                     },
@@ -174,19 +189,21 @@ class _HeroWidgetState extends State<HeroWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                        fontFamily: 'Inter Tight',
-                                        color: Colors.white,
-                                        fontSize: 18.0,
-                                        letterSpacing: 0.0,
-                                        shadows: [
-                                          Shadow(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            offset: Offset(2.0, 2.0),
-                                            blurRadius: 2.0,
-                                          )
-                                        ],
-                                      ),
+                                            fontFamily: 'pro',
+                                            color: Colors.white,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            shadows: [
+                                              Shadow(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                offset: Offset(2.0, 2.0),
+                                                blurRadius: 2.0,
+                                              )
+                                            ],
+                                            useGoogleFonts: false,
+                                          ),
                                       elevation: 0.0,
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -232,6 +249,10 @@ class _HeroWidgetState extends State<HeroWidget> {
                                         size: 32.0,
                                       ),
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'HERO_COMP_menu_open_ICN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'IconButton_alert_dialog');
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {
@@ -286,7 +307,7 @@ class _HeroWidgetState extends State<HeroWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          50.0, 0.0, 0.0, 10.0),
+                                          50.0, 0.0, 0.0, 35.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -331,32 +352,33 @@ class _HeroWidgetState extends State<HeroWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 15.0),
                                                   child: AutoSizeText(
-                                                    'Have you been diagnosed with Stiff Person Syndrome (SPS)?',
+                                                    'Have you been diagnosed with Stiff Persons Syndrome (SPS)?',
                                                     textAlign: TextAlign.start,
                                                     minFontSize: 14.0,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                      fontFamily: 'Inter',
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      fontSize: 26.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                      shadows: [
-                                                        Shadow(
+                                                          fontFamily: 'pro',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
-                                                          offset:
-                                                              Offset(2.0, 2.0),
-                                                          blurRadius: 2.0,
-                                                        )
-                                                      ],
-                                                    ),
+                                                              .primaryBackground,
+                                                          fontSize: 26.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          shadows: [
+                                                            Shadow(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                              offset: Offset(
+                                                                  2.0, 2.0),
+                                                              blurRadius: 2.0,
+                                                            )
+                                                          ],
+                                                          useGoogleFonts: false,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -382,24 +404,26 @@ class _HeroWidgetState extends State<HeroWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      offset: Offset(2.0, 2.0),
-                                                      blurRadius: 2.0,
-                                                    )
-                                                  ],
-                                                ),
+                                                          fontFamily: 'pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 24.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          shadows: [
+                                                            Shadow(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                              offset: Offset(
+                                                                  2.0, 2.0),
+                                                              blurRadius: 2.0,
+                                                            )
+                                                          ],
+                                                          useGoogleFonts: false,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -413,6 +437,11 @@ class _HeroWidgetState extends State<HeroWidget> {
                                             children: [
                                               FFButtonWidget(
                                                 onPressed: () async {
+                                                  logFirebaseEvent(
+                                                      'HERO_COMP_GET_STARTED_BTN_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Button_navigate_to');
+
                                                   context.pushNamed(
                                                       SignTodayWidget
                                                           .routeName);
@@ -434,17 +463,16 @@ class _HeroWidgetState extends State<HeroWidget> {
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
                                                   color: Color(0xA439D2C0),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Inter Tight',
-                                                            color: Colors.white,
-                                                            fontSize: 22.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'pro',
+                                                        color: Colors.white,
+                                                        fontSize: 22.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: false,
+                                                      ),
                                                   elevation: 0.0,
                                                   borderRadius:
                                                       BorderRadius.circular(

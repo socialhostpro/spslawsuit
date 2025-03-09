@@ -153,6 +153,9 @@ class _SpsWhatISWidgetState extends State<SpsWhatISWidget> {
             ))
               FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('SPS_WHAT_I_S_DEDICATED_LEGAL_TEAM_BTN_ON');
+                  logFirebaseEvent('Button_navigate_to');
+
                   context.pushNamed(SignTodayWidget.routeName);
                 },
                 text: 'DEDICATED LEGAL TEAM',
@@ -168,10 +171,11 @@ class _SpsWhatISWidgetState extends State<SpsWhatISWidget> {
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Inter Tight',
+                        fontFamily: 'pro',
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
+                        useGoogleFonts: false,
                       ),
                   elevation: 0.0,
                   borderRadius: BorderRadius.circular(0.0),

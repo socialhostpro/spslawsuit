@@ -62,38 +62,24 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
+                    width: MediaQuery.sizeOf(context).width * 0.95,
+                    height: 211.3,
                     constraints: BoxConstraints(
-                      minWidth: 300.0,
-                      maxWidth: 700.0,
+                      maxWidth: 400.0,
                     ),
                     decoration: BoxDecoration(),
-                    child: Text(
-                      'GROUNDBREAKING LEGAL DISCOVERY ',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).accent4,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
-                          ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        'assets/images/GREEN_(6).png',
+                        width: 574.9,
+                        height: 200.0,
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'And a Fight for Justice',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).accent4,
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ],
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
@@ -114,12 +100,13 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
                         'We believe your condition was caused by exposure to a chemical in the environment, and those responsible must be held accountable.\n\nOur firm is prepared to demand up to \$50 million in compensation for your suffering—past, present, and future. We can make no promises on recovery and this is not just about financial recovery; it’s about recognition, justice, and ensuring others don’t suffer the same fate.\n\nThe underlying cause? Elevated glutamic acid decarboxylase (GAD) titers—which are also seen in diabetes but are found at far higher levels in SPS patients, especially in the spinal fluid. This leads to an imbalance of glutamate (excitatory signals) and GABA (inhibitory relaxation signals), leaving the body in a perpetual convulsive state, much like enduring mini-seizures all day, every day.',
                         minFontSize: 12.0,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              fontFamily: 'pro',
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              fontSize: 24.0,
+                              fontSize: 22.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w300,
+                              useGoogleFonts: false,
                             ),
                       ),
                     ),

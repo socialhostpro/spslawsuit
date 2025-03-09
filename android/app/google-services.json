@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "236734951116",
+    "project_id": "sps-lawsuit-wxuvso",
+    "storage_bucket": "sps-lawsuit-wxuvso.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236734951116:android:423e00aff54d8c2c0cdc69",
+        "android_client_info": {
+          "package_name": "com.shp.spslawsuit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbGMgGdHya2W8vXtF4ch5HRXFin1WYsd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

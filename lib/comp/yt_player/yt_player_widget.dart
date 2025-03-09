@@ -48,6 +48,7 @@ class _YtPlayerWidgetState extends State<YtPlayerWidget> {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
@@ -55,17 +56,36 @@ class _YtPlayerWidgetState extends State<YtPlayerWidget> {
               color: Color(0xB314181B),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 25.0),
-            child: FlutterFlowYoutubePlayer(
-              url: 'https://youtu.be/WGcwceC_Y1w?si=GeKcFLA8D846eT7k',
-              width: MediaQuery.sizeOf(context).width * 0.75,
-              autoPlay: false,
-              looping: true,
-              mute: false,
-              showControls: true,
-              showFullScreen: true,
-              strictRelatedVideos: true,
+          Container(
+            width: MediaQuery.sizeOf(context).width * 0.85,
+            constraints: BoxConstraints(
+              minWidth: 400.0,
+            ),
+            decoration: BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 25.0),
+                      child: FlutterFlowYoutubePlayer(
+                        url: 'https://youtu.be/WGcwceC_Y1w?si=GeKcFLA8D846eT7k',
+                        width: MediaQuery.sizeOf(context).width * 0.75,
+                        autoPlay: false,
+                        looping: true,
+                        mute: false,
+                        showControls: true,
+                        showFullScreen: true,
+                        strictRelatedVideos: true,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

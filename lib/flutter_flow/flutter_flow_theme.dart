@@ -159,65 +159,65 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter Tight';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Inter Tight',
+  String get displayLargeFamily => 'pro';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Inter Tight';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Inter Tight',
+  String get displayMediumFamily => 'pro';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Inter Tight';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Inter Tight',
+  String get displaySmallFamily => 'pro';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Inter Tight';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Inter Tight',
+  String get headlineLargeFamily => 'pro';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Inter Tight';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Inter Tight',
+  String get headlineMediumFamily => 'pro';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
-  String get headlineSmallFamily => 'Inter Tight';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Inter Tight',
+  String get headlineSmallFamily => 'pro';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Inter Tight';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Inter Tight',
+  String get titleLargeFamily => 'pro';
+  TextStyle get titleLarge => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
-  String get titleMediumFamily => 'Inter Tight';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Inter Tight',
+  String get titleMediumFamily => 'pro';
+  TextStyle get titleMedium => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Inter Tight';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Inter Tight',
+  String get titleSmallFamily => 'pro';
+  TextStyle get titleSmall => TextStyle(
+        fontFamily: 'pro',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,

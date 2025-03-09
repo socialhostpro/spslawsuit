@@ -7,10 +7,10 @@ import '/comp/sps_is_rare/sps_is_rare_widget.dart';
 import '/comp/sps_what_i_s/sps_what_i_s_widget.dart';
 import '/comp/yt_player/yt_player_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'home_page_widget.dart' show HomePageWidget;
+import 'home_widget.dart' show HomeWidget;
 import 'package:flutter/material.dart';
 
-class HomePageModel extends FlutterFlowModel<HomePageWidget> {
+class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for hero component.

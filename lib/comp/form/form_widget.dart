@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -5,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'form_model.dart';
 export 'form_model.dart';
 
@@ -87,7 +89,7 @@ class _FormWidgetState extends State<FormWidget> {
         ),
         child: Form(
           key: _model.formKey,
-          autovalidateMode: AutovalidateMode.disabled,
+          autovalidateMode: AutovalidateMode.always,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -112,7 +114,10 @@ class _FormWidgetState extends State<FormWidget> {
                             size: 24.0,
                           ),
                           onPressed: () async {
-                            context.pushNamed(HomePageWidget.routeName);
+                            logFirebaseEvent('FORM_COMP_arrow_back_ICN_ON_TAP');
+                            logFirebaseEvent('IconButton_navigate_to');
+
+                            context.pushNamed(HomeWidget.routeName);
                           },
                         ),
                       ),
@@ -227,8 +232,16 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'FULL NAME',
+                                    isDense: false,
+                                    labelText: 'FULL NAME',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -270,6 +283,11 @@ class _FormWidgetState extends State<FormWidget> {
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    prefixIcon: Icon(
+                                      Icons.person,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -279,8 +297,9 @@ class _FormWidgetState extends State<FormWidget> {
                                             .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  keyboardType: TextInputType.name,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController1Validator
                                       .asValidator(context),
                                 ),
@@ -304,8 +323,16 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'EMAIL ADDRESS',
+                                    isDense: false,
+                                    labelText: 'EMAIL ADDRESS',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -346,6 +373,11 @@ class _FormWidgetState extends State<FormWidget> {
                                     ),
                                     filled: true,
                                     fillColor: Color(0xEE14181B),
+                                    prefixIcon: Icon(
+                                      Icons.email_outlined,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -355,8 +387,9 @@ class _FormWidgetState extends State<FormWidget> {
                                             .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  keyboardType: TextInputType.emailAddress,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController2Validator
                                       .asValidator(context),
                                 ),
@@ -380,8 +413,16 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'PHONE NUMBER',
+                                    isDense: false,
+                                    labelText: 'PHONE NUMBER',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -423,19 +464,26 @@ class _FormWidgetState extends State<FormWidget> {
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    prefixIcon: Icon(
+                                      Icons.phone_in_talk,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                            .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  keyboardType: TextInputType.phone,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController3Validator
                                       .asValidator(context),
+                                  inputFormatters: [_model.textFieldMask3],
                                 ),
                               ),
                             ),
@@ -457,16 +505,8 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'STREET ADDRESS',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          letterSpacing: 0.0,
-                                        ),
+                                    isDense: false,
+                                    labelText: 'STREET ADDRESS',
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -500,6 +540,11 @@ class _FormWidgetState extends State<FormWidget> {
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryText,
+                                    prefixIcon: Icon(
+                                      Icons.home,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                    ),
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -509,8 +554,9 @@ class _FormWidgetState extends State<FormWidget> {
                                             .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  keyboardType: TextInputType.streetAddress,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController4Validator
                                       .asValidator(context),
                                 ),
@@ -534,8 +580,16 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'CITY',
+                                    isDense: false,
+                                    labelText: 'CITY',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -586,8 +640,8 @@ class _FormWidgetState extends State<FormWidget> {
                                             .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController5Validator
                                       .asValidator(context),
                                 ),
@@ -606,8 +660,16 @@ class _FormWidgetState extends State<FormWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    isDense: true,
-                                    hintText: 'STATE',
+                                    isDense: false,
+                                    labelText: 'STATE',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -658,8 +720,8 @@ class _FormWidgetState extends State<FormWidget> {
                                             .primaryBackground,
                                         letterSpacing: 0.0,
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  cursorColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
                                   validator: _model.textController6Validator
                                       .asValidator(context),
                                 ),
@@ -686,8 +748,16 @@ class _FormWidgetState extends State<FormWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      isDense: true,
-                                      hintText: 'ZIPCODE',
+                                      isDense: false,
+                                      labelText: 'ZIPCODE',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            letterSpacing: 0.0,
+                                          ),
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -742,8 +812,9 @@ class _FormWidgetState extends State<FormWidget> {
                                               .primaryBackground,
                                           letterSpacing: 0.0,
                                         ),
+                                    keyboardType: TextInputType.number,
                                     cursorColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .primaryBackground,
                                     validator: _model.textController7Validator
                                         .asValidator(context),
                                   ),
@@ -771,10 +842,10 @@ class _FormWidgetState extends State<FormWidget> {
                                     autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      isDense: true,
-                                      hintText: 'DESCRIBE YOUR SITUATION',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
+                                      isDense: false,
+                                      labelText: 'DESCRIBE YOUR SITUATION',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
@@ -836,70 +907,14 @@ class _FormWidgetState extends State<FormWidget> {
                                             required isFocused,
                                             maxLength}) =>
                                         null,
+                                    keyboardType: TextInputType.multiline,
                                     cursorColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .primaryBackground,
                                     validator: _model.textController8Validator
                                         .asValidator(context),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 10.0),
-                                  child: Text(
-                                    'NOTE* PDF,JPG, DOCS ALLOWED',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                  ),
-                                ),
-                                FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: 'UPLOAD YOUR DOCUMENTS',
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Inter Tight',
-                                          color: Colors.white,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -915,8 +930,54 @@ class _FormWidgetState extends State<FormWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'FORM_COMP_SUBMIT_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_backend_call');
+                                    _model.apiResult64s =
+                                        await NewLeadSendEmailAddSheetCall.call(
+                                      fullName: _model.textController1.text,
+                                      email: _model.textController2.text,
+                                      phone: _model.textController3.text,
+                                      stAddress: _model.textController4.text,
+                                      city: _model.textController5.text,
+                                      state: _model.textController6.text,
+                                      zip: _model.textController7.text,
+                                      description: _model.textController8.text,
+                                    );
+
+                                    if ((_model.apiResult64s?.succeeded ??
+                                            true) ==
+                                        true) {
+                                      logFirebaseEvent('Button_navigate_to');
+
+                                      context
+                                          .pushNamed(ThankYouWidget.routeName);
+                                    } else {
+                                      logFirebaseEvent('Button_alert_dialog');
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              title: Text('Error'),
+                                              content:
+                                                  Text('Your request failed '),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    }
+
+                                    safeSetState(() {});
                                   },
                                   text: 'SUBMIT',
                                   options: FFButtonOptions(
@@ -929,9 +990,10 @@ class _FormWidgetState extends State<FormWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          fontFamily: 'pro',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: false,
                                         ),
                                     elevation: 0.0,
                                     borderRadius: BorderRadius.circular(8.0),
