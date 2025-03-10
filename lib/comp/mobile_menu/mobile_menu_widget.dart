@@ -90,7 +90,7 @@ class _MobileMenuWidgetState extends State<MobileMenuWidget> {
                           'MOBILE_MENU_COMP_GET_STARTED_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed(SignTodayWidget.routeName);
+                      context.pushNamed(HomeWidget.routeName);
                     },
                     text: 'GET STARTED',
                     icon: FaIcon(
