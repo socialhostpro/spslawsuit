@@ -128,6 +128,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ThankYouWidget.routeName,
           path: ThankYouWidget.routePath,
           builder: (context, params) => ThankYouWidget(),
+        ),
+        FFRoute(
+          name: PrivacyWidget.routeName,
+          path: PrivacyWidget.routePath,
+          builder: (context, params) => PrivacyWidget(),
+        ),
+        FFRoute(
+          name: TermsWidget.routeName,
+          path: TermsWidget.routePath,
+          builder: (context, params) => TermsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -313,15 +323,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  child: Image.asset(
+                    'assets/images/LOGO-W.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

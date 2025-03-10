@@ -13,7 +13,12 @@ import 'hero_model.dart';
 export 'hero_model.dart';
 
 class HeroWidget extends StatefulWidget {
-  const HeroWidget({super.key});
+  const HeroWidget({
+    super.key,
+    this.scroll,
+  });
+
+  final Future Function()? scroll;
 
   @override
   State<HeroWidget> createState() => _HeroWidgetState();

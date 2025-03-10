@@ -1,4 +1,5 @@
-import '/comp/form/form_widget.dart';
+import '/comp/footer/footer_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -49,17 +50,42 @@ class _SignTodayWidgetState extends State<SignTodayWidget> {
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryText,
+            appBar: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primaryText,
+              automaticallyImplyLeading: false,
+              leading: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  logFirebaseEvent('SIGN_TODAY_arrow_back_rounded_ICN_ON_TAP');
+                  logFirebaseEvent('IconButton_navigate_back');
+                  context.pop();
+                },
+              ),
+              actions: [],
+              centerTitle: true,
+              elevation: 2.0,
+            ),
             body: SafeArea(
               top: true,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  wrapWithModel(
-                    model: _model.formModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: FormWidget(),
-                  ),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    wrapWithModel(
+                      model: _model.footerModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: FooterWidget(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

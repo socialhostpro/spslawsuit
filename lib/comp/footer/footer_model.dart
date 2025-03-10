@@ -17,6 +17,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
       return 'FULL NAME is required';
     }
 
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
+    }
+
     if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
       return 'Must start with a letter and can only contain letters, digits and - or _.';
     }
@@ -30,6 +34,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   String? _textController2Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'EMAIL ADDRESS is required';
+    }
+
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
@@ -48,6 +56,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
       return 'PHONE NUMBER is required';
     }
 
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
+    }
+
     return null;
   }
 
@@ -58,6 +70,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   String? _textController4Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'STREET ADDRESS is required';
+    }
+
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
     }
 
     return null;
@@ -72,6 +88,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
       return 'CITY is required';
     }
 
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
+    }
+
     return null;
   }
 
@@ -82,6 +102,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   String? _textController6Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'STATE is required';
+    }
+
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
     }
 
     return null;
@@ -96,6 +120,10 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
       return 'ZIPCODE is required';
     }
 
+    if (val.length < 1) {
+      return 'Requires at least 1 characters.';
+    }
+
     return null;
   }
 
@@ -103,14 +131,6 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   FocusNode? textFieldFocusNode8;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
-  String? _textController8Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'DESCRIBE YOUR SITUATION is required';
-    }
-
-    return null;
-  }
-
   // Stores action output result for [Backend Call - API (newLeadSendEmailAddSheet)] action in Button widget.
   ApiCallResponse? apiResult64s2;
 
@@ -123,7 +143,6 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
     textController5Validator = _textController5Validator;
     textController6Validator = _textController6Validator;
     textController7Validator = _textController7Validator;
-    textController8Validator = _textController8Validator;
   }
 
   @override

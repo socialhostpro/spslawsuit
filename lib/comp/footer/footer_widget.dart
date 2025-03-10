@@ -1061,6 +1061,17 @@ class _FooterWidgetState extends State<FooterWidget> {
                                                   onPressed: () async {
                                                     logFirebaseEvent(
                                                         'FOOTER_COMP_SUBMIT_BTN_ON_TAP');
+                                                    var _shouldSetState = false;
+                                                    logFirebaseEvent(
+                                                        'Button_validate_form');
+                                                    if (_model.formKey
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
                                                     logFirebaseEvent(
                                                         'Button_backend_call');
                                                     _model.apiResult64s2 =
@@ -1084,6 +1095,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                                                           .textController8.text,
                                                     );
 
+                                                    _shouldSetState = true;
                                                     if ((_model.apiResult64s2
                                                                 ?.succeeded ??
                                                             true) ==
@@ -1120,9 +1132,17 @@ class _FooterWidgetState extends State<FooterWidget> {
                                                           );
                                                         },
                                                       );
+                                                      if (_shouldSetState)
+                                                        safeSetState(() {});
+                                                      return;
                                                     }
 
-                                                    safeSetState(() {});
+                                                    logFirebaseEvent(
+                                                        'Button_google_analytics_event');
+                                                    logFirebaseEvent(
+                                                        'FormSubmit');
+                                                    if (_shouldSetState)
+                                                      safeSetState(() {});
                                                   },
                                                   text: 'SUBMIT',
                                                   options: FFButtonOptions(

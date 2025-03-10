@@ -43,7 +43,7 @@ class _SpsWhatISWidgetState extends State<SpsWhatISWidget> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
       child: Container(
-        height: 593.8,
+        height: 633.75,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
         ),
@@ -112,9 +112,9 @@ class _SpsWhatISWidgetState extends State<SpsWhatISWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/vnimc_1.png',
+                                    'assets/images/GREEN_(14).png',
                                     width: 528.0,
-                                    height: 592.9,
+                                    height: 498.51,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
