@@ -73,7 +73,7 @@ class _YtPlayerWidgetState extends State<YtPlayerWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 25.0),
                       child: FlutterFlowYoutubePlayer(
-                        url: 'https://youtu.be/WGcwceC_Y1w?si=GeKcFLA8D846eT7k',
+                        url: 'https://youtu.be/qg-Jlb-hTBI?si=3T0iR2SexL3a4hfU',
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         autoPlay: false,
                         looping: true,

@@ -138,6 +138,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: TermsWidget.routeName,
           path: TermsWidget.routePath,
           builder: (context, params) => TermsWidget(),
+        ),
+        FFRoute(
+          name: AgreementWidget.routeName,
+          path: AgreementWidget.routePath,
+          builder: (context, params) => AgreementWidget(
+            clientName: params.getParam(
+              'clientName',
+              ParamType.String,
+            ),
+            clientphone: params.getParam(
+              'clientphone',
+              ParamType.String,
+            ),
+            clientEmail: params.getParam(
+              'clientEmail',
+              ParamType.String,
+            ),
+            clientStreet: params.getParam(
+              'clientStreet',
+              ParamType.String,
+            ),
+            cityStateZip: params.getParam(
+              'cityStateZip',
+              ParamType.String,
+            ),
+            physicianPhone: params.getParam(
+              'physicianPhone',
+              ParamType.String,
+            ),
+            physicianAddress: params.getParam(
+              'physicianAddress',
+              ParamType.String,
+            ),
+            physicianName: params.getParam(
+              'physicianName',
+              ParamType.String,
+            ),
+            story: params.getParam(
+              'story',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

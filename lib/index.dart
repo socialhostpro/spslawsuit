@@ -13,6 +13,7 @@ export '/account_profile_creation/auth_2_profile/auth2_profile_widget.dart'
     show Auth2ProfileWidget;
 export '/account_profile_creation/auth_2_edit_profile/auth2_edit_profile_widget.dart'
     show Auth2EditProfileWidget;
-export '/thank_you/thank_you_widget.dart' show ThankYouWidget;
-export '/privacy/privacy_widget.dart' show PrivacyWidget;
-export '/terms/terms_widget.dart' show TermsWidget;
+export '/pages/thank_you/thank_you_widget.dart' show ThankYouWidget;
+export '/pages/privacy/privacy_widget.dart' show PrivacyWidget;
+export '/pages/terms/terms_widget.dart' show TermsWidget;
+export '/agreement/agreement_widget.dart' show AgreementWidget;

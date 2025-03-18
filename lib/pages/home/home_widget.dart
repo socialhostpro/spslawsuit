@@ -5,6 +5,7 @@ import '/comp/spacer/spacer_widget.dart';
 import '/comp/sps_is_rare/sps_is_rare_widget.dart';
 import '/comp/sps_what_i_s/sps_what_i_s_widget.dart';
 import '/comp/yt_player/yt_player_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,6 +14,7 @@ import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -29,10 +31,12 @@ class HomeWidget extends StatefulWidget {
   State<HomeWidget> createState() => _HomeWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
   late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -45,6 +49,105 @@ class _HomeWidgetState extends State<HomeWidget> {
       logFirebaseEvent('HOME_PAGE_Home_ON_INIT_STATE');
       logFirebaseEvent('Home_google_analytics_event');
       logFirebaseEvent('homeView');
+    });
+
+    animationsMap.addAll({
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 990.0.ms,
+            begin: Offset(0.0, -96.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -112,7 +215,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.spaceEvenly,
                                           children: [
                                             if (responsiveVisibility(
                                               context: context,
@@ -221,7 +324,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           BorderRadius.circular(
                                                               0.0),
                                                     ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'buttonOnPageLoadAnimation1']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -311,7 +415,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           BorderRadius.circular(
                                                               0.0),
                                                     ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'buttonOnPageLoadAnimation2']!),
                                                 ),
                                               ],
                                             ),
@@ -456,7 +561,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           fit: BoxFit.contain,
                                                           cacheWidth: 300,
                                                         ),
-                                                      ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'imageOnPageLoadAnimation']!),
                                                     ),
                                                   ],
                                                 ),
@@ -538,7 +645,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           useGoogleFonts:
                                                                               false,
                                                                         ),
-                                                                  ),
+                                                                  ).animateOnPageLoad(
+                                                                          animationsMap[
+                                                                              'textOnPageLoadAnimation1']!),
                                                                 ),
                                                               ),
                                                             ),
@@ -598,7 +707,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                       useGoogleFonts:
                                                                           false,
                                                                     ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                      animationsMap[
+                                                                          'textOnPageLoadAnimation2']!),
                                                             ),
                                                           ],
                                                         ),
@@ -649,7 +760,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 ),
                                                                 options:
                                                                     FFButtonOptions(
-                                                                  width: 226.3,
+                                                                  width: 178.66,
                                                                   height: 44.1,
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -664,7 +775,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           0.0,
                                                                           0.0),
                                                                   color: Color(
-                                                                      0xA439D2C0),
+                                                                      0x6239D2C0),
                                                                   textStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmall
@@ -687,7 +798,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           .circular(
                                                                               0.0),
                                                                 ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'buttonOnPageLoadAnimation3']!),
                                                             ],
                                                           ),
                                                         ),
@@ -812,7 +925,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: false,
                                                         ),
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'textOnPageLoadAnimation3']!),
                                             ),
                                           ),
                                         ],
@@ -874,7 +988,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 borderRadius:
                                                     BorderRadius.circular(0.0),
                                               ),
-                                            ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'buttonOnPageLoadAnimation4']!),
                                           ],
                                         ),
                                       ),

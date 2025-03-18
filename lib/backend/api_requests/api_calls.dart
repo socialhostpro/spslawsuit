@@ -18,6 +18,7 @@ class NewLeadSendEmailAddSheetCall {
     String? state = 'state',
     String? zip = 'zip',
     String? description = 'description',
+    String? date = 'date',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -28,6 +29,7 @@ class NewLeadSendEmailAddSheetCall {
   "city": "${escapeStringForJson(city)}",
   "state": "${escapeStringForJson(state)}",
   "zip": "${escapeStringForJson(zip)}",
+  "date": "${escapeStringForJson(date)}",
   "description": "${escapeStringForJson(description)}"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -37,6 +39,25 @@ class NewLeadSendEmailAddSheetCall {
       headers: {},
       params: {},
       body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class MyCaseAddLeadCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'myCaseAddLead',
+      apiUrl: 'https://n8n.socialhostpro.com/webhook-test/swordandshield',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,

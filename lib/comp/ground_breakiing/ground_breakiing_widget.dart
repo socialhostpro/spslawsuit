@@ -1,7 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'ground_breakiing_model.dart';
 export 'ground_breakiing_model.dart';
 
@@ -12,8 +14,11 @@ class GroundBreakiingWidget extends StatefulWidget {
   State<GroundBreakiingWidget> createState() => _GroundBreakiingWidgetState();
 }
 
-class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
+class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget>
+    with TickerProviderStateMixin {
   late GroundBreakiingModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -25,6 +30,33 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GroundBreakiingModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.9, 0.9),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 320.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -76,7 +108,8 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
                         height: 200.0,
                         fit: BoxFit.fitWidth,
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation']!),
                   ),
                 ],
               ),
@@ -108,7 +141,8 @@ class _GroundBreakiingWidgetState extends State<GroundBreakiingWidget> {
                               fontWeight: FontWeight.w300,
                               useGoogleFonts: false,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ),
                   ),
                 ],

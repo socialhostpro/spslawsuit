@@ -21,9 +21,6 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
       return 'Requires at least 1 characters.';
     }
 
-    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
-      return 'Must start with a letter and can only contain letters, digits and - or _.';
-    }
     return null;
   }
 
@@ -114,6 +111,7 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode7;
   TextEditingController? textController7;
+  final textFieldMask7 = MaskTextInputFormatter(mask: '#####');
   String? Function(BuildContext, String?)? textController7Validator;
   String? _textController7Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
@@ -131,6 +129,19 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
   FocusNode? textFieldFocusNode8;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode9;
+  TextEditingController? textController9;
+  final textFieldMask9 = MaskTextInputFormatter(mask: '(###) ###-####');
+  String? Function(BuildContext, String?)? textController9Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode10;
+  TextEditingController? textController10;
+  String? Function(BuildContext, String?)? textController10Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode11;
+  TextEditingController? textController11;
+  String? Function(BuildContext, String?)? textController11Validator;
   // Stores action output result for [Backend Call - API (newLeadSendEmailAddSheet)] action in Button widget.
   ApiCallResponse? apiResult64s2;
 
@@ -170,5 +181,14 @@ class FooterModel extends FlutterFlowModel<FooterWidget> {
 
     textFieldFocusNode8?.dispose();
     textController8?.dispose();
+
+    textFieldFocusNode9?.dispose();
+    textController9?.dispose();
+
+    textFieldFocusNode10?.dispose();
+    textController10?.dispose();
+
+    textFieldFocusNode11?.dispose();
+    textController11?.dispose();
   }
 }
